@@ -11,8 +11,9 @@ let tempDisplay = document.getElementById('temp');
 button.addEventListener('click', async  () => {
    weather = await fetchWeatherJSON(`${search.value}`);
    let fahrenheit = (weather.main.temp - 273.15) * 9/5 + 32;
-   tempDisplay.innerText = `Temperature is ${Math.floor(fahrenheit)}°`
+   let celsius = weather.main.temp - 273.15;
+   tempDisplay.innerText = `The temperature is ${Math.floor(fahrenheit)}° in ${weather.name}`
+   return weather
 })
-
 
 
